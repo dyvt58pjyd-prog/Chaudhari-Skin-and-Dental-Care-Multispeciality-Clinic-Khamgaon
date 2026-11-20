@@ -23,8 +23,8 @@ export const ClinicInfoModal: React.FC<ClinicInfoModalProps> = ({ onClose }) => 
   const [activeTab, setActiveTab] = useState<'overview' | 'photos' | 'services' | 'reviews'>('overview');
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-slate-900 border border-slate-700 rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+      <div className="bg-slate-900 border border-slate-700 rounded-3xl w-full max-w-2xl max-h-[92vh] overflow-hidden shadow-2xl flex flex-col">
         {/* Header */}
         <div className="p-5 bg-slate-950/90 border-b border-slate-800 flex items-center justify-between">
           <div className="flex items-center gap-3">

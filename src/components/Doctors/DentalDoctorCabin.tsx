@@ -246,16 +246,16 @@ export const DentalDoctorCabin: React.FC<DentalDoctorCabinProps> = ({ cabinId })
         /* Active Patient In Dental Chair */
         <div className="space-y-6">
           {/* Patient Details Top Bar */}
-          <div className="bg-slate-900 border-2 border-cyan-800/60 rounded-3xl p-6 shadow-xl flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-cyan-500 text-slate-950 font-black text-2xl font-mono flex items-center justify-center shadow-lg">
+          <div className="bg-slate-900 border-2 border-cyan-800/60 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xl flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-cyan-500 text-slate-950 font-black text-xl sm:text-2xl font-mono flex items-center justify-center shadow-lg flex-shrink-0">
                 #{currentPatient.tokenNumber}
               </div>
               <div>
                 <span className="text-xs font-extrabold text-cyan-400 uppercase tracking-wider">
                   Patient On Dental Chair
                 </span>
-                <h3 className="text-2xl font-black text-white flex items-center gap-2">
+                <h3 className="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
                   {currentPatient.name}
                   {currentPatient.age && (
                     <span className="text-sm font-bold text-slate-300">

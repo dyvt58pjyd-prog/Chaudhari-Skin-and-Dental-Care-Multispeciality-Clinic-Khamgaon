@@ -3,12 +3,49 @@
 :root {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe area padding for mobile notches */
+body {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 
 /* Touch friendly minimum height */
 .touch-btn {
-  min-height: 56px;
+  min-height: 48px;
   touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Hide scrollbar for clean horizontal chip bars on mobile/tablet */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom sleek dark scrollbar for desktop & tablet */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  border: 2px solid #020617;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }
 
 /* Print styling */

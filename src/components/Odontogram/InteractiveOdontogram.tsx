@@ -192,8 +192,8 @@ export const InteractiveOdontogram: React.FC<InteractiveOdontogramProps> = ({
         </div>
 
         {/* Surface Painting Brush Selector */}
-        <div className="flex flex-wrap items-center gap-2 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1">
+        <div className="flex items-center gap-2 bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 overflow-x-auto no-scrollbar whitespace-nowrap">
+          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1 flex-shrink-0">
             Surface Brush:
           </span>
           <button
@@ -257,6 +257,15 @@ export const InteractiveOdontogram: React.FC<InteractiveOdontogramProps> = ({
             Sealant ₹600
           </button>
         </div>
+      </div>
+
+      {/* Mobile Swipe Hint */}
+      <div className="lg:hidden flex items-center justify-between text-[11px] text-cyan-300 bg-cyan-950/40 border border-cyan-800/60 px-3 py-1.5 rounded-xl">
+        <span className="flex items-center gap-1.5 font-bold">
+          <span>📱</span>
+          <span>Swipe left & right to view all 32 teeth (डावीकडे-उजवीकडे स्वाइप करा)</span>
+        </span>
+        <span className="text-[10px] text-slate-400 font-mono">32 Teeth</span>
       </div>
 
       {/* ODONTOGRAM DENTAL GRID */}

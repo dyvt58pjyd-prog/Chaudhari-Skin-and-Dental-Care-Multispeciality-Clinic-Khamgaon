@@ -495,23 +495,23 @@ export const PrescriptionBuilder: React.FC<PrescriptionBuilderProps> = ({
             </span>
           </div>
 
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {/* Morning Box */}
             <button
               type="button"
               onClick={() => updateDosageIndicators(!morning, afternoon, night)}
-              className={`p-3.5 rounded-2xl border-2 flex flex-col items-center justify-center gap-1.5 transition select-none ${
+              className={`p-2.5 sm:p-3.5 rounded-2xl border-2 flex flex-col items-center justify-center gap-1 sm:gap-1.5 transition select-none ${
                 morning
                   ? 'bg-amber-500/20 border-amber-500 text-amber-300 shadow-lg shadow-amber-950/40'
                   : 'bg-slate-900 border-slate-800 text-slate-500 hover:border-slate-700'
               }`}
             >
               <div className="flex items-center gap-1">
-                <Sun className={`w-4 h-4 ${morning ? 'text-amber-400 animate-spin-slow' : 'text-slate-500'}`} />
-                <span className="text-xs font-black">MORNING</span>
+                <Sun className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${morning ? 'text-amber-400 animate-spin-slow' : 'text-slate-500'}`} />
+                <span className="text-[10px] sm:text-xs font-black">MORNING</span>
               </div>
-              <span className="text-[11px] font-bold">सकाळ</span>
-              <span className={`text-sm font-black font-mono px-2 py-0.5 rounded ${
+              <span className="text-[10px] sm:text-[11px] font-bold">सकाळ</span>
+              <span className={`text-xs sm:text-sm font-black font-mono px-2 py-0.5 rounded ${
                 morning ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-400'
               }`}>
                 {morning ? '1' : '0'}
@@ -522,18 +522,18 @@ export const PrescriptionBuilder: React.FC<PrescriptionBuilderProps> = ({
             <button
               type="button"
               onClick={() => updateDosageIndicators(morning, !afternoon, night)}
-              className={`p-3.5 rounded-2xl border-2 flex flex-col items-center justify-center gap-1.5 transition select-none ${
+              className={`p-2.5 sm:p-3.5 rounded-2xl border-2 flex flex-col items-center justify-center gap-1 sm:gap-1.5 transition select-none ${
                 afternoon
                   ? 'bg-orange-500/20 border-orange-500 text-orange-300 shadow-lg shadow-orange-950/40'
                   : 'bg-slate-900 border-slate-800 text-slate-500 hover:border-slate-700'
               }`}
             >
               <div className="flex items-center gap-1">
-                <Sunset className={`w-4 h-4 ${afternoon ? 'text-orange-400' : 'text-slate-500'}`} />
-                <span className="text-xs font-black">AFTERNOON</span>
+                <Sunset className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${afternoon ? 'text-orange-400' : 'text-slate-500'}`} />
+                <span className="text-[10px] sm:text-xs font-black">AFTERNOON</span>
               </div>
-              <span className="text-[11px] font-bold">दुपार</span>
-              <span className={`text-sm font-black font-mono px-2 py-0.5 rounded ${
+              <span className="text-[10px] sm:text-[11px] font-bold">दुपार</span>
+              <span className={`text-xs sm:text-sm font-black font-mono px-2 py-0.5 rounded ${
                 afternoon ? 'bg-orange-500 text-slate-950' : 'bg-slate-800 text-slate-400'
               }`}>
                 {afternoon ? '1' : '0'}
@@ -544,18 +544,18 @@ export const PrescriptionBuilder: React.FC<PrescriptionBuilderProps> = ({
             <button
               type="button"
               onClick={() => updateDosageIndicators(morning, afternoon, !night)}
-              className={`p-3.5 rounded-2xl border-2 flex flex-col items-center justify-center gap-1.5 transition select-none ${
+              className={`p-2.5 sm:p-3.5 rounded-2xl border-2 flex flex-col items-center justify-center gap-1 sm:gap-1.5 transition select-none ${
                 night
                   ? 'bg-indigo-500/20 border-indigo-500 text-indigo-300 shadow-lg shadow-indigo-950/40'
                   : 'bg-slate-900 border-slate-800 text-slate-500 hover:border-slate-700'
               }`}
             >
               <div className="flex items-center gap-1">
-                <Moon className={`w-4 h-4 ${night ? 'text-indigo-400' : 'text-slate-500'}`} />
-                <span className="text-xs font-black">NIGHT</span>
+                <Moon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${night ? 'text-indigo-400' : 'text-slate-500'}`} />
+                <span className="text-[10px] sm:text-xs font-black">NIGHT</span>
               </div>
-              <span className="text-[11px] font-bold">रात्र</span>
-              <span className={`text-sm font-black font-mono px-2 py-0.5 rounded ${
+              <span className="text-[10px] sm:text-[11px] font-bold">रात्र</span>
+              <span className={`text-xs sm:text-sm font-black font-mono px-2 py-0.5 rounded ${
                 night ? 'bg-indigo-500 text-white' : 'bg-slate-800 text-slate-400'
               }`}>
                 {night ? '1' : '0'}
@@ -564,8 +564,8 @@ export const PrescriptionBuilder: React.FC<PrescriptionBuilderProps> = ({
           </div>
 
           {/* Quick Frequency Code Buttons */}
-          <div className="flex flex-wrap items-center gap-1.5 mt-2.5">
-            <span className="text-[10px] text-slate-400 font-bold uppercase">Quick Presets:</span>
+          <div className="flex items-center gap-1.5 mt-2.5 overflow-x-auto no-scrollbar whitespace-nowrap pb-1">
+            <span className="text-[10px] text-slate-400 font-bold uppercase flex-shrink-0">Presets:</span>
             {[
               { label: '1-0-1 (Two times)', code: '1-0-1' },
               { label: '1-1-1 (Three times)', code: '1-1-1' },

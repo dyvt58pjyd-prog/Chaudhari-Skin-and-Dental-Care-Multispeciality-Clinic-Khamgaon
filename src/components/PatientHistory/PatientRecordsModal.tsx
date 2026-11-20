@@ -58,6 +58,7 @@ export const PatientRecordsModal: React.FC<PatientRecordsModalProps> = ({
   );
   const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'timeline' | 'prescriptions' | 'photos' | 'billing'>('timeline');
+  const [mobileView, setMobileView] = useState<'list' | 'detail'>(initialPatientId ? 'detail' : 'list');
 
   // Filter patients with strict department isolation
   const filteredPatients = patients.filter((p) => {
@@ -251,7 +252,7 @@ export const PatientRecordsModal: React.FC<PatientRecordsModalProps> = ({
         {/* Master-Detail Body */}
         <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
           {/* Left Panel: Search & Patient List */}
-          <div className="w-full md:w-80 border-r border-slate-800 flex flex-col bg-slate-950/70">
+          <div className={`w-full md:w-80 border-r border-slate-800 flex flex-col bg-slate-950/70 ${mobileView === 'detail' ? 'hidden md:flex' : 'flex'}`}>
             {/* Search input */}
             <div className="p-3 border-b border-slate-800 space-y-2">
               <div className="relative">
@@ -412,6 +413,7 @@ export const PatientRecordsModal: React.FC<PatientRecordsModalProps> = ({
                       onClick={() => {
                         sound.playTapSound();
                         setSelectedPatientId(p.id);
+                        setMobileView('detail');
                       }}
                       className={`p-3 rounded-xl cursor-pointer transition flex items-center justify-between gap-2 select-none ${
                         isSelected
@@ -462,11 +464,26 @@ export const PatientRecordsModal: React.FC<PatientRecordsModalProps> = ({
           </div>
 
           {/* Right Panel: Detailed Dossier Arranged by Latest Date */}
-          <div className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-5 bg-slate-900/60">
+          <div className={`flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 sm:space-y-5 bg-slate-900/60 ${mobileView === 'list' ? 'hidden md:block' : 'block'}`}>
             {selectedPatient ? (
               <>
+                {/* Mobile Back to List Button */}
+                <button
+                  type="button"
+                  onClick={() => setMobileView('list')}
+                  className="md:hidden w-full mb-2 px-4 py-2.5 rounded-2xl bg-slate-950 border border-slate-700 hover:border-cyan-400 text-cyan-300 text-xs font-black flex items-center justify-between transition active:scale-95 shadow-sm"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span>←</span>
+                    <span>Back to Patient Records List</span>
+                  </span>
+                  <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-300">
+                    {filteredPatients.length} Patients
+                  </span>
+                </button>
+
                 {/* 1. Patient Top Profile Summary Card */}
-                <div className="bg-slate-950 p-5 rounded-3xl border border-slate-800 flex flex-wrap items-center justify-between gap-4 shadow-xl">
+                <div className="bg-slate-950 p-4 sm:p-5 rounded-2xl sm:rounded-3xl border border-slate-800 flex flex-wrap items-center justify-between gap-4 shadow-xl">
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 rounded-2xl bg-cyan-600/20 border-2 border-cyan-500/40 text-cyan-400 font-black text-2xl font-mono flex items-center justify-center shadow-lg">
                       #{selectedPatient.tokenNumber}
@@ -533,7 +550,7 @@ export const PatientRecordsModal: React.FC<PatientRecordsModalProps> = ({
                 </div>
 
                 {/* 2. Navigation Tabs (Timeline, All Prescriptions, Photos, Billing) */}
-                <div className="flex border-b border-slate-800 gap-2">
+                <div className="flex border-b border-slate-800 gap-2 overflow-x-auto no-scrollbar whitespace-nowrap pb-1">
                   <button
                     type="button"
                     onClick={() => setActiveTab('timeline')}

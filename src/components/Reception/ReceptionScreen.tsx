@@ -732,7 +732,7 @@ export const ReceptionScreen: React.FC = () => {
                       )}
                     </div>
 
-                    <div className="flex items-center gap-2 pt-1 border-t border-slate-900">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 border-t border-slate-900">
                       <button
                         type="button"
                         onClick={() => {
@@ -741,7 +741,7 @@ export const ReceptionScreen: React.FC = () => {
                           setJustAddedAlert(`Returning patient ${patient.name} added to line for follow-up!`);
                           setTimeout(() => setJustAddedAlert(null), 4000);
                         }}
-                        className="flex-1 py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black flex items-center justify-center gap-1.5 transition active:scale-95"
+                        className="flex-1 py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black flex items-center justify-center gap-1.5 transition active:scale-95 shadow-sm"
                       >
                         <UserPlus className="w-3.5 h-3.5" />
                         <span>+ Add to Line</span>
@@ -751,7 +751,7 @@ export const ReceptionScreen: React.FC = () => {
                         href={`https://wa.me/91${patient.phone}?text=${reminderText}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-emerald-400 text-xs font-bold flex items-center gap-1.5 transition"
+                        className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-emerald-400 text-xs font-bold flex items-center justify-center gap-1.5 transition active:scale-95 text-center"
                       >
                         <MessageCircle className="w-3.5 h-3.5" />
                         <span>WhatsApp Reminder</span>

@@ -168,29 +168,29 @@ export const AdminScreen: React.FC<AdminScreenProps> = ({ onExit }) => {
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12 animate-fadeIn">
       {/* Top Banner */}
-      <div className="bg-slate-900 border-2 border-indigo-500/60 rounded-3xl p-6 shadow-2xl flex flex-wrap items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-2xl bg-indigo-600/20 border-2 border-indigo-500/50 flex items-center justify-center text-3xl shadow-lg">
+      <div className="bg-slate-900 border-2 border-indigo-500/60 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-2xl flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-indigo-600/20 border-2 border-indigo-500/50 flex items-center justify-center text-2xl sm:text-3xl shadow-lg flex-shrink-0">
             🛡️
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-black text-white">ADMIN CONSOLE & MASTER SETTINGS</h1>
-              <span className="px-3 py-0.5 rounded-full text-xs font-black uppercase bg-indigo-500 text-slate-950">
-                LOCKED BY PIN 4326
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="text-lg sm:text-2xl font-black text-white">ADMIN CONSOLE</h1>
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-black uppercase bg-indigo-500 text-slate-950">
+                PIN 4326
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className="text-xs text-slate-400 mt-0.5 hidden xs:block">
               Manage Doctors, Pricing Catalogs, Medicine Formularies, Daily Queue & System Settings
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
           <button
             type="button"
             onClick={onExit}
-            className="touch-btn px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 hover:border-red-500 text-red-300 hover:text-white text-xs font-black flex items-center gap-1.5 transition select-none"
+            className="touch-btn px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 hover:border-red-500 text-red-300 hover:text-white text-xs font-black flex items-center gap-1.5 transition select-none active:scale-95"
           >
             <LogOut className="w-4 h-4" />
             <span>EXIT ADMIN</span>
@@ -206,7 +206,7 @@ export const AdminScreen: React.FC<AdminScreenProps> = ({ onExit }) => {
       )}
 
       {/* Admin Navigation Tabs */}
-      <div className="flex flex-wrap border-b border-slate-800 gap-2">
+      <div className="flex border-b border-slate-800 gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar whitespace-nowrap pb-1 sm:flex-wrap">
         {[
           { key: 'dashboard', label: '📊 Financial & Queue Analytics', icon: Activity },
           { key: 'doctors', label: '👨‍⚕️ Doctors & PIN Security', icon: Stethoscope },

@@ -72,9 +72,9 @@ export const PinModal: React.FC<PinModalProps> = ({ role, onSuccess, onCancel })
   }, [pin]);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-md animate-fadeIn">
       <div
-        className={`bg-slate-900 border-2 border-slate-700 rounded-3xl w-full max-w-sm overflow-hidden shadow-2xl flex flex-col transition-transform ${
+        className={`bg-slate-900 border-2 border-slate-700 rounded-3xl w-full max-w-sm max-h-[95vh] overflow-y-auto shadow-2xl flex flex-col transition-transform ${
           shake ? 'animate-bounce' : ''
         }`}
       >
